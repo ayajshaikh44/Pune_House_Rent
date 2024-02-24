@@ -11,7 +11,7 @@ app = Flask(__name__)
 @app.route('/')
 def rent_model():
     print('Welcome to the House Rent Prediction Model')
-    return render_template('index.html')
+    return render_template('index1.html')
 
 
 #################################################################################
@@ -22,7 +22,7 @@ def rent_model():
 def get_house_rent():
     if request.method == 'POST':
         print('We are in POST Method')
-        data = request.form
+        data = request.get_json()
         seller_type = data['seller_type']
         bedroom = eval(data['bedroom'])
         layout_type = data['layout_type']
@@ -36,7 +36,7 @@ def get_house_rent():
 
         house_rent = HouseRentPrediction(seller_type, bedroom, layout_type, property_type, area, furnish_type, bathroom, locality)
         rent = house_rent.get_predicted_rent()
-        return jsonify({'Result': f"Price of House Rent is : RS. {round(rent[0], 2)}"})
+        return jsonify({'Result': f"Price of House Rent is : RS. {round(rent[0])}"})
     
     else:
 

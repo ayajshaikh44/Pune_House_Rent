@@ -3,231 +3,202 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>House_Rent_Price</title>
+    <title>Pune House Rent Prediction</title>
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
 </head>
 
-<body style="background-color: hsl(199, 70%, 37%);">
-    <!-- <body background-image="static/pune.jpg" background-repeat="no-repeat” background-size="100% 100%”> -->
-    <!-- <center> -->
-    <center>
-        <h1> Pune House Rent Price Prediction </h1>
-    </center>
-    <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSURANCE -->
-    <br>
-    <br>
-    <img src='static\pune.jpg'>
+<body>
+    <div class="container">
+        <h1>Pune House Rent Prediction</h1>
+        <form id="rentPredictionForm">
+            <label for="sellerType">Seller Type:</label>
+            <select name="seller_type" id="sellerType">
+                <option value="AGENT">AGENT</option>
+                <option value="BUILDER">BUILDER</option>
+                <option value="OWNER">OWNER</option>
+            </select>
 
-    <br><br>
-    <form method="get" action="/predict_rent">
+            <label for="bedroom">Number of Bedrooms:</label>
+            <select name="bedroom" id="bedroom">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
 
-        <label>AGENT/BUILDER/OWNER:</label>
-        <select name="seller_type">
-            <option value="AGENT">AGENT</option>
-            <option value="BUILDER">BUILDER</option>
-            <option value="OWNER">OWNER</option>
-        </select>
+            <label for="bhkType">BHK Type:</label>
+            <select name="layout_type" id="bhkType">
+                <option value="BHK">BHK</option>
+                <option value="RK">RK</option>
+            </select>
 
-        <br>
-        <br>
-        <label>BEDROOM:</label>
-        <select name="bedroom">
-            <option value=1>1</option>
-            <option value=2>2</option>
-            <option value=3>3</option>
-            <option value=4>4</option>
-        </select>
+            <label for="propertyType">Property Type:</label>
+            <select name="property_type" id="propertyType">
+                <option value="Apartment">Apartment</option>
+                <option value="Studio Apartment">Studio Apartment</option>
+                <option value="Independent House">Independent House</option>
+                <option value="Independent Floor">Independent Floor</option>
+                <option value="Villa">Villa</option>
+                <option value="Penthouse">Penthouse</option>
+            </select>
 
-        <br>
-        <br>
-        <label>BHK/RK:</label>
-        <select name="layout_type">
-            <option value="BHK">BHK</option>
-            <option value="RK">RK</option>
-        </select>
+            <label for="area">Area (sq. ft.):</label>
+            <input type="text" name="area" id="area" required>
 
-        <br>
-        <br>
-        <label>PROPERTY TYPE:</label>
-        <select name="property_type">
-            <option value="Apartment">Apartment</option>
-            <option value="Studio Apartment">Studio Apartment</option>
-            <option value="Independent House">Independent House</option>
-            <option value="Independent Floor">Independent Floor</option>
-            <option value="Villa">Villa</option>
-            <option value="Penthouse">Penthouse</option>
-        </select>
+            <label for="furnishType">Furnish Type:</label>
+            <select name="furnish_type" id="furnishType">
+                <option value="Unfurnished">Unfurnished</option>
+                <option value="Semi-Furnished">Semi-Furnished</option>
+                <option value="Furnished">Furnished</option>
+            </select>
 
+            <label for="bathroom">Number of Bathrooms:</label>
+            <select name="bathroom" id="bathroom">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+            </select>
 
-        <br>
-        <br>
-        <label>SQUARE FEET:</label>
-        <input type="text" name="area">
-        <br>
-        <br>
-        <label>FURNISH TYPE:</label>
-        <select name="furnish_type">
-            <option value="Unfurnished">Unfurnished</option>
-            <option value="Semi-Furnished">Semi-Furnished</option>
-            <option value="Furnished">Furnished</option>
-        </select>
+            <label for="locality">Locality:</label>
+            <select name="locality" id="locality">
+                <option value="Mundhwa">Mundhwa</option>
+                <option value="Wakad">Wakad</option>
+                <option value="Wagholi">Wagholi</option>
+                <option value="Kothrud">Kothrud</option>
+                <option value="Yerawada">Yerawada</option>
+                <option value="other">other</option>
+                <option value="Pimple Saudagar">Pimple Saudagar</option>
+                <option value="Hinjewadi">Hinjewadi</option>
+                <option value="Dhanori">Dhanori</option>
+                <option value="Nigdi">Nigdi</option>
+                <option value="Bopkhel">Bopkhel</option>
+                <option value="Viman Nagar">Viman Nagar</option>
+                <option value="Dhayari">Dhayari</option>
+                <option value="Chakan">Chakan</option>
+                <option value="Chinchwad">Chinchwad</option>
+                <option value="Kharadi">Kharadi</option>
+                <option value="Kalyani Nagar">Kalyani Nagar</option>
+                <option value="Ravet">Ravet</option>
+                <option value="Lohegaon">Lohegaon</option>
+                <option value="Parvati Darshan">Parvati Darshan</option>
+                <option value="Chikhali">Chikhali</option>
+                <option value="Baner">Baner</option>
+                <option value="Pimple Gurav">Pimple Gurav</option>
+                <option value="Bhosari">Bhosari</option>
+                <option value="Undri">Undri</option>
+                <option value="Dighi">Dighi</option>
+                <option value="Sus">Sus</option>
+                <option value="Hadapsar">Hadapsar</option>
+                <option value="Tathawade">Tathawade</option>
+                <option value="Karve Nagar">Karve Nagar</option>
+                <option value="Bavdhan">Bavdhan</option>
+                <option value="Warje">Warje</option>
+                <option value="Kondhwa">Kondhwa</option>
+                <option value="Manjari">Manjari</option>
+                <option value="Daund">Daund</option>
+                <option value="Manjari Budruk">Manjari Budruk</option>
+                <option value="New Sangavi">New Sangavi</option>
+                <option value="Pimpri">Pimpri</option>
+                <option value="Alandi">Alandi</option>
+                <option value="Gahunje">Gahunje</option>
+                <option value="Wadgaon Sheri">Wadgaon Sheri</option>
+                <option value="Sopan Baug">Sopan Baug</option>
+                <option value="Katraj">Katraj</option>
+                <option value="Pimple Nilakh">Pimple Nilakh</option>
+                <option value="Anand Nagar">Anand Nagar</option>
+                <option value="Thergaon">Thergaon</option>
+                <option value="Talwade">Talwade</option>
+                <option value="Tingre Nagar">Tingre Nagar</option>
+                <option value="Akurdi">Akurdi</option>
+                <option value="Sangamvadi">Sangamvadi</option>
+                <option value="Pirangut">Pirangut</option>
+                <option value="Kasba Peth">Kasba Peth</option>
+                <option value="Wanowrie">Wanowrie</option>
+                <option value="Aundh">Aundh</option>
+                <option value="Balewadi">Balewadi</option>
+                <option value="Handewadi">Handewadi</option>
+                <option value="New Kalyani Nagar">New Kalyani Nagar</option>
+                <option value="Punawale">Punawale</option>
+                <option value="Fursungi">Fursungi</option>
+                <option value="Dhayari Phata">Dhayari Phata</option>
+                <option value="Talegaon Dabhade">Talegaon Dabhade</option>
+                <option value="Ambegaon Budruk">Ambegaon Budruk</option>
+                <option value="Pashan">Pashan</option>
+                <option value="Rahatani">Rahatani</option>
+                <option value="hingne Khurd">hingne Khurd</option>
+                <option value="NIBM Annex Mohammadwadi">NIBM Annex Mohammadwadi</option>
+                <option value="Ganesh Nagar">Ganesh Nagar</option>
+                <option value="Magarpatta">Magarpatta</option>
+                <option value="Wanwadi">Wanwadi</option>
+                <option value="Ghorpadi">Ghorpadi</option>
+                <option value="Vadgaon Budruk">Vadgaon Budruk</option>
+                <option value="Chandan Nagar">Chandan Nagar</option>
+                <option value="Mahalunge">Mahalunge</option>
+                <option value="Vishrantwadi">Vishrantwadi</option>
+                <option value="Ambegaon Pathar">Ambegaon Pathar</option>
+                <option value="Shivaji Nagar">Shivaji Nagar</option>
+                <option value="Koregaon Park">Koregaon Park</option>
+                <option value="Agalambe">Agalambe</option>
+                <option value="Nanded">Nanded</option>
+                <option value="Charholi Budruk">Charholi Budruk</option>
+                <option value="Shivane">Shivane</option>
+                <option value="Bhugaon">Bhugaon</option>
+                <option value="Rasta Peth">Rasta Peth</option>
+                <option value="Kondhwa Budruk">Kondhwa Budruk</option>
+                <option value="NIBM Annexe">NIBM Annexe</option>
+                <option value="Mohammed wadi">Mohammed wadi</option>
+                <option value="Ashok Nagar">Ashok Nagar</option>
+                <option value="Old Sangvi">Old Sangvi</option>
+                <option value="Dhankawadi Police Station Road">Dhankawadi Police Station Road</option>
+                <option value="Erandwane">Erandwane</option>
+                <option value="Bibwewadi">Bibwewadi</option>
+                <option value="Moshi">Moshi</option>
+                <option value="Bhukum">Bhukum</option>
+                <option value="Deccan Gymkhana">Deccan Gymkhana</option>
+                <option value="Kalewadi">Kalewadi</option>
+                <option value="Warje Malwadi">Warje Malwadi</option>
+                <option value="Shukrawar Peth">Shukrawar Peth</option>
+                <option value="Bhegade Aali">Bhegade Aali</option>
+                <option value="Sadashiv Peth">Sadashiv Peth</option>
+                <option value="Shaniwar Peth">Shaniwar Peth</option>
+                <option value="Gultekdi">Gultekdi</option>
+                <option value="Narhe">Narhe</option>
+                <option value="Balaji Nagar">Balaji Nagar</option>
+                <option value="Nigdi Sector 24">Nigdi Sector 24</option>
+                <option value="Bopodi">Bopodi</option>
+                <option value="Pradhikaran Nigdi">Pradhikaran Nigdi</option>
+                <option value="Somwar Peth">Somwar Peth</option>
+                <option value="NIBM">NIBM</option>
+                <option value="Kothrud Depot Road">Kothrud Depot Road</option>
+                <option value="Kasarwadi">Kasarwadi</option>
+                <option value="Lulla Nagar">Lulla Nagar</option>
+                <option value="Loni Kalbhor">Loni Kalbhor</option>
+                <option value="Market yard">Market yard</option>
+                <option value="Dattavadi">Dattavadi</option>
+                <option value="Mamurdi">Mamurdi</option>
+                <option value="Pune Satara Road">Pune Satara Road</option>
+                <option value="Boat Club Road">Boat Club Road</option>
+                <option value="Baner Road">Baner Road</option>
+                <option value="Narayan Peth">Narayan Peth</option>
+                <option value="Pune Station">Pune Station</option>
+                <option value="Vadgoan Sheri Rajendri Nagar">Vadgoan Sheri Rajendri Nagar</option>
+                <option value="Swargate">Swargate</option>
+                <option value="Jambhulwadi">Jambhulwadi</option>
+                <option value="Marunji">Marunji</option>
+                <option value="Gokhalenagar">Gokhalenagar</option>
+                <option value="Sahakar Nagar">Sahakar Nagar</option>
+                <option value="Senapati Bapat Road">Senapati Bapat Road</option>
+            </select>
 
-        <br>
-        <br>
-        <label>BATHROOM:</label>
-        <select name="bathroom">
-            <option value=1>1</option>
-            <option value=2>2</option>
-            <option value=3>3</option>
-            <option value=4>4</option>
-            <option value=5>5</option>
-            <option value=6>6</option>
-        </select>
-        <br>
-        <br>
-        <label>LOCALITY:</label>
-        <select name="locality">
-            <option value="Mundhwa">Mundhwa</option>
-            <option value="Wakad">Wakad</option>
-            <option value="Wagholi">Wagholi</option>
-            <option value="Kothrud">Kothrud</option>
-            <option value="Yerawada">Yerawada</option>
-            <option value="other">other</option>
-            <option value="Pimple Saudagar">Pimple Saudagar</option>
-            <option value="Hinjewadi">Hinjewadi</option>
-            <option value="Dhanori">Dhanori</option>
-            <option value="Nigdi">Nigdi</option>
-            <option value="Bopkhel">Bopkhel</option>
-            <option value="Viman Nagar">Viman Nagar</option>
-            <option value="Dhayari">Dhayari</option>
-            <option value="Chakan">Chakan</option>
-            <option value="Chinchwad">Chinchwad</option>
-            <option value="Kharadi">Kharadi</option>
-            <option value="Kalyani Nagar">Kalyani Nagar</option>
-            <option value="Ravet">Ravet</option>
-            <option value="Lohegaon">Lohegaon</option>
-            <option value="Parvati Darshan">Parvati Darshan</option>
-            <option value="Chikhali">Chikhali</option>
-            <option value="Baner">Baner</option>
-            <option value="Pimple Gurav">Pimple Gurav</option>
-            <option value="Bhosari">Bhosari</option>
-            <option value="Undri">Undri</option>
-            <option value="Dighi">Dighi</option>
-            <option value="Sus">Sus</option>
-            <option value="Hadapsar">Hadapsar</option>
-            <option value="Tathawade">Tathawade</option>
-            <option value="Karve Nagar">Karve Nagar</option>
-            <option value="Bavdhan">Bavdhan</option>
-            <option value="Warje">Warje</option>
-            <option value="Kondhwa">Kondhwa</option>
-            <option value="Manjari">Manjari</option>
-            <option value="Daund">Daund</option>
-            <option value="Manjari Budruk">Manjari Budruk</option>
-            <option value="New Sangavi">New Sangavi</option>
-            <option value="Pimpri">Pimpri</option>
-            <option value="Alandi">Alandi</option>
-            <option value="Gahunje">Gahunje</option>
-            <option value="Wadgaon Sheri">Wadgaon Sheri</option>
-            <option value="Sopan Baug">Sopan Baug</option>
-            <option value="Katraj">Katraj</option>
-            <option value="Pimple Nilakh">Pimple Nilakh</option>
-            <option value="Anand Nagar">Anand Nagar</option>
-            <option value="Thergaon">Thergaon</option>
-            <option value="Talwade">Talwade</option>
-            <option value="Tingre Nagar">Tingre Nagar</option>
-            <option value="Akurdi">Akurdi</option>
-            <option value="Sangamvadi">Sangamvadi</option>
-            <option value="Pirangut">Pirangut</option>
-            <option value="Kasba Peth">Kasba Peth</option>
-            <option value="Wanowrie">Wanowrie</option>
-            <option value="Aundh">Aundh</option>
-            <option value="Balewadi">Balewadi</option>
-            <option value="Handewadi">Handewadi</option>
-            <option value="New Kalyani Nagar">New Kalyani Nagar</option>
-            <option value="Punawale">Punawale</option>
-            <option value="Fursungi">Fursungi</option>
-            <option value="Dhayari Phata">Dhayari Phata</option>
-            <option value="Talegaon Dabhade">Talegaon Dabhade</option>
-            <option value="Ambegaon Budruk">Ambegaon Budruk</option>
-            <option value="Pashan">Pashan</option>
-            <option value="Rahatani">Rahatani</option>
-            <option value="hingne Khurd">hingne Khurd</option>
-            <option value="NIBM Annex Mohammadwadi">NIBM Annex Mohammadwadi</option>
-            <option value="Ganesh Nagar">Ganesh Nagar</option>
-            <option value="Magarpatta">Magarpatta</option>
-            <option value="Wanwadi">Wanwadi</option>
-            <option value="Ghorpadi">Ghorpadi</option>
-            <option value="Vadgaon Budruk">Vadgaon Budruk</option>
-            <option value="Chandan Nagar">Chandan Nagar</option>
-            <option value="Mahalunge">Mahalunge</option>
-            <option value="Vishrantwadi">Vishrantwadi</option>
-            <option value="Ambegaon Pathar">Ambegaon Pathar</option>
-            <option value="Shivaji Nagar">Shivaji Nagar</option>
-            <option value="Koregaon Park">Koregaon Park</option>
-            <option value="Agalambe">Agalambe</option>
-            <option value="Nanded">Nanded</option>
-            <option value="Charholi Budruk">Charholi Budruk</option>
-            <option value="Shivane">Shivane</option>
-            <option value="Bhugaon">Bhugaon</option>
-            <option value="Rasta Peth">Rasta Peth</option>
-            <option value="Kondhwa Budruk">Kondhwa Budruk</option>
-            <option value="NIBM Annexe">NIBM Annexe</option>
-            <option value="Mohammed wadi">Mohammed wadi</option>
-            <option value="Ashok Nagar">Ashok Nagar</option>
-            <option value="Old Sangvi">Old Sangvi</option>
-            <option value="Dhankawadi Police Station Road">Dhankawadi Police Station Road</option>
-            <option value="Erandwane">Erandwane</option>
-            <option value="Bibwewadi">Bibwewadi</option>
-            <option value="Moshi">Moshi</option>
-            <option value="Bhukum">Bhukum</option>
-            <option value="Deccan Gymkhana">Deccan Gymkhana</option>
-            <option value="Kalewadi">Kalewadi</option>
-            <option value="Warje Malwadi">Warje Malwadi</option>
-            <option value="Shukrawar Peth">Shukrawar Peth</option>
-            <option value="Bhegade Aali">Bhegade Aali</option>
-            <option value="Sadashiv Peth">Sadashiv Peth</option>
-            <option value="Shaniwar Peth">Shaniwar Peth</option>
-            <option value="Gultekdi">Gultekdi</option>
-            <option value="Narhe">Narhe</option>
-            <option value="Balaji Nagar">Balaji Nagar</option>
-            <option value="Nigdi Sector 24">Nigdi Sector 24</option>
-            <option value="Bopodi">Bopodi</option>
-            <option value="Pradhikaran Nigdi">Pradhikaran Nigdi</option>
-            <option value="Somwar Peth">Somwar Peth</option>
-            <option value="NIBM">NIBM</option>
-            <option value="Kothrud Depot Road">Kothrud Depot Road</option>
-            <option value="Kasarwadi">Kasarwadi</option>
-            <option value="Lulla Nagar">Lulla Nagar</option>
-            <option value="Loni Kalbhor">Loni Kalbhor</option>
-            <option value="Market yard">Market yard</option>
-            <option value="Dattavadi">Dattavadi</option>
-            <option value="Mamurdi">Mamurdi</option>
-            <option value="Pune Satara Road">Pune Satara Road</option>
-            <option value="Boat Club Road">Boat Club Road</option>
-            <option value="Baner Road">Baner Road</option>
-            <option value="Narayan Peth">Narayan Peth</option>
-            <option value="Pune Station">Pune Station</option>
-            <option value="Vadgoan Sheri Rajendri Nagar">Vadgoan Sheri Rajendri Nagar</option>
-            <option value="Swargate">Swargate</option>
-            <option value="Jambhulwadi">Jambhulwadi</option>
-            <option value="Marunji">Marunji</option>
-            <option value="Gokhalenagar">Gokhalenagar</option>
-            <option value="Sahakar Nagar">Sahakar Nagar</option>
-            <option value="Senapati Bapat Road">Senapati Bapat Road</option>
-        </select>
-
-        <br>
-        <br>
-        <input type="submit" value="SUBMIT">
-
-
-    </form>
-
-    <br>
-    <br>
-    {{rent}}
-    <!-- </center>  -->
+            <input type="submit" value="Predict Rent">
+        </form>
+        <div id="predictedRentContainer">Predicted Rent: </div>
+    </div>
+    <script src="/static/script.js"></script>
 </body>
 
 </html>
